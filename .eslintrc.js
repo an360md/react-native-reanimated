@@ -1,38 +1,20 @@
 module.exports = {
-  root: true,
-  parser: '@typescript-eslint/parser',
+  parser: 'babel-eslint',
   extends: [
     'standard',
-    'plugin:@typescript-eslint/recommended',
     'prettier',
-    'plugin:import/typescript',
+    'prettier/flowtype',
+    'prettier/react',
+    'prettier/standard',
   ],
-  plugins: ['react', 'react-native', 'import', 'jest', '@typescript-eslint'],
+  plugins: ['react', 'react-native', 'import', 'jest'],
   env: {
     'react-native/react-native': true,
     'jest/globals': true,
   },
-  settings: {
-    'import/resolver': {
-      'babel-module': {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
-    },
-  },
   rules: {
-    'import/no-unresolved': 'error',
-    'react/jsx-uses-vars': 'error',
-    'react/jsx-uses-react': 'error',
-    'no-use-before-define': 'off',
-    '@typescript-eslint/no-use-before-define': 'off', // TODO consider enabling this (currently it reports styles defined at the bottom of the file)
-    '@typescript-eslint/ban-ts-comment': [
-      'error',
-      {
-        'ts-ignore': 'allow-with-description',
-        'ts-expect-error': 'allow-with-description',
-      },
-    ],
-    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-    '@typescript-eslint/no-var-requires': 'warn',
+    'import/no-unresolved': 2,
+    'react/jsx-uses-vars': 2,
+    'react/jsx-uses-react': 2,
   },
 };

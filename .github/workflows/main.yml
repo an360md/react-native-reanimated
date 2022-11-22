@@ -3,7 +3,7 @@ name: Publish to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   publish:
@@ -18,11 +18,11 @@ jobs:
           && git config --local user.name "GitHub Action"
           && cd docs
           && yarn
-          && yarn build
+          && yarn component-docs build
 
       - name: Publish generated content to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          FOLDER: docs/build
+          FOLDER: docs/dist
           BRANCH: gh-pages
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
